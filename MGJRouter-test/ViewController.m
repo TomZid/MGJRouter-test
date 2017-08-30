@@ -22,7 +22,7 @@ static NSMutableDictionary *_titleWithHandlers;
     }
     
     [_titleArray addObject:title];
-    _titleWithHandlers[title] = handle();
+    _titleWithHandlers[title] = handle;
 }
 
 - (void)viewDidLoad {
@@ -31,28 +31,21 @@ static NSMutableDictionary *_titleWithHandlers;
 }
 
 - (IBAction)title1:(id)sender {
-//    [self performSegueWithIdentifier:@"detailSegue" sender:nil];
     NSString *title = _titleArray[0];
-    UIViewController *vc = _titleWithHandlers[title];
+    UIViewController *vc = ((id(^)())_titleWithHandlers[title])();
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)title2:(id)sender {
-//    [self performSegueWithIdentifier:@"detailSegue" sender:nil];
     NSString *title = _titleArray[1];
-    UIViewController *vc = _titleWithHandlers[title];
+    UIViewController *vc = ((id(^)())_titleWithHandlers[title])();
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)title3:(id)sender {
-//    [self performSegueWithIdentifier:@"detailSegue" sender:nil];
     NSString *title = _titleArray[2];
-    UIViewController *vc = _titleWithHandlers[title];
+    UIViewController *vc = ((id(^)())_titleWithHandlers[title])();
     [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
 }
 
 @end

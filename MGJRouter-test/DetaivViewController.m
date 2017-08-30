@@ -20,7 +20,7 @@
 @implementation DetaivViewController
 + (void)load {
     [super load];
-    DetaivViewController *vc = [DetaivViewController new];
+    DetaivViewController *vc = [[DetaivViewController alloc] init];
     [ViewController registWithTitle:@"title-1" handle:^id{
         vc.selectedSelector = @selector(title1);
         return vc;
